@@ -80,36 +80,30 @@ class Registration:
 class Changepswd:
 
     @classmethod
-    def change(cls) -> object:
-        log = input("Enter your login: ")
+    def change(cls):
+        log = input("Input your login: ")
         pswd = hashlib.md5(input("Enter your password: ").encode('utf-8')).hexdigest()
         i = 0
-
-        with open("db.json") as f:
+        with open("db.json", "r+") as f:
             db = json.load(f)
             for users in db["users"]:
-                i += 1
-                bolean = False
-                if log == users["log"]:
-                    if log != users["username"] or pswd != users["password"]:
-                        new_pswd = input("Write a new password: ")
-                        new_pswd1 = input("Write a new password again: ")
-                        if new_pswd == new_pswd1:
-                            print("Password successfully changed")
-                            bolean = True
-                        break
-                    if bolean != True:
+                i = + 1
+                if log == users["username"] and pswd == users["password"]:
+                    new_pswd = hashlib.md5(input("Enter your new password: ").encode('utf-8')).hexdigest()
+                    new_pswd1 = hashlib.md5(input("Confirm your new password: ").encode('utf-8')).hexdigest()
+                    if new_pswd == new_pswd1:
+                        print("Password successfully changed")
+
+                        def send(data):
+                            with open("db.json", "w") as file:
+                                json.dump(data, file, indent=4)
+
+                        with open("db.json") as file:
+                            db = json.load(file)
+                            db["users"][i - 1]["password"] = new_pswd
+                            send(db)
+                    else:
                         print("Incorrect login or password, please try again")
-
-        def upd_json(data):
-            with open("db.json", "w") as f:
-                json.dump(data, f, indent=4)
-            with open("db.json") as f:
-                data = json.load(f)
-                data["users"][i - 1]["password"] = new_pswd
-                chng(data)
-
-        return (pswd)
 
 
 n = input('if you are already registered press 1, if not 0, to change password press 2: ')
@@ -122,5 +116,4 @@ elif n == "0":
     user.write_json("db.json")
 
 elif n == "2":
-    chng = Changepswd.change()
-    chng.upd_json()
+    Changepswd.change()

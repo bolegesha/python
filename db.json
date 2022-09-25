@@ -1,39 +1,18 @@
 {
     "users": [
         {
-            "username": "da",
-            "name": "da",
-            "surname": "da",
-            "age": "da",
-            "password": "da"
-        },
-        {
-            "username": "da",
-            "name": "da",
-            "surname": "da",
-            "age": "da",
-            "password": "5ca2aa845c8cd5ace6b016841f100d82"
-        },
-        {
             "username": "bolegewa",
+            "password": "7717e9cf143d49344f11797a9b159a82",
             "name": "Aldiyar",
             "surname": "Bolegenov",
-            "age": "19",
-            "password": "827ccb0eea8a706c4c34a16891f84e7b"
+            "age": "19"
         },
         {
-            "username": "ad",
-            "name": "ad",
-            "surname": "ad",
-            "age": "ad",
-            "password": "523af537946b79c4f8369ed39ba78605"
-        },
-        {
-            "username": "smbkq",
-            "password": "92c2f0cb58c9f9dd0b6c28aabecb3fb9",
-            "name": "Sanzhar",
-            "surname": "Taipov",
-            "age": "24"
+            "username": "tvzon",
+            "password": "827ccb0eea8a706c4c34a16891f84e7b",
+            "name": "Aldiyar",
+            "surname": "Bolegenov",
+            "age": "19"
         }
     ]
 }
